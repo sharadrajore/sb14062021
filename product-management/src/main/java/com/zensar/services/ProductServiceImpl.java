@@ -1,7 +1,5 @@
 package com.zensar.services;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,30 +14,29 @@ public class ProductServiceImpl implements ProductService {
 	private ProductRepository repository;
 	
 	
-	public List<Product> getAllProducts() {
-		return repository.getAllProducts();
+	public Iterable<Product> getAllProducts() {
+		return repository.findAll();
 	}
 
 	
 	public Product getProduct(int productId) {
-		return repository.getProduct(productId);
+		return repository.findById(productId).get();
 	}
 
 	
-	public boolean insertProduct( Product product) {
-		return repository.insertProduct(product);
+	public Product insertProduct( Product product) {
+		return repository.save(product);
 	}
 
 	
-	public boolean deleteProduct( int productId) {
-
-		return repository.deleteProduct(productId);
+	public void deleteProduct( int productId) {
+		repository.deleteById(productId);
 
 	}
 
 	
 	public Product updateProduct( int productId,  Product product) {
-		return repository.updateProduct(productId, product);
+		return repository.save(product);
 	}
 
 

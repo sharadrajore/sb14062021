@@ -1,7 +1,5 @@
 package com.zensar.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +23,7 @@ public class ProductController {
 
 	// @RequestMapping(value = "/products", method=RequestMethod.GET)
 	@GetMapping("/products")
-	public List<Product> getAllProducts() {
+	public Iterable<Product> getAllProducts() {
 		return service.getAllProducts();
 	}
 
@@ -39,15 +37,15 @@ public class ProductController {
 	// http://localhost:8080/products -> POST
 	// @RequestMapping(value="/products",method=RequestMethod.POST)
 	@PostMapping("/products")
-	public boolean insertProduct(@RequestBody Product product) {
+	public Product insertProduct(@RequestBody Product product) {
 		return service.insertProduct(product);
 	}
 
 	// http://localhost:8080/products/2 -> Delete
 	// @RequestMapping(value="/products/{productId}",method=RequestMethod.DELETE)
 	@DeleteMapping("/products/{productId}")
-	public boolean deleteProduct(@PathVariable("productId") int productId) {
-		return service.deleteProduct(productId);
+	public void deleteProduct(@PathVariable("productId") int productId) {
+		service.deleteProduct(productId);
 	}
 
 	// http://localhost:8080/products/{productId} -> PUT
