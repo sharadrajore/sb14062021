@@ -1,7 +1,5 @@
 package com.zensar.services;
 
-import java.util.List;
-
 import com.zensar.entites.Product;
 
 public interface ProductService {
