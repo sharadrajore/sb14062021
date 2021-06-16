@@ -1,5 +1,7 @@
 package com.zensar.services;
 
+import java.util.List;
+
 import com.zensar.entites.Product;
 
 public interface ProductService {
@@ -13,5 +15,7 @@ public interface ProductService {
 	public void deleteProduct(int productId);
 
 	public Product updateProduct(int productId, Product product);
+	
+	public List<Product> getProductByItsName(String name);
 
 }

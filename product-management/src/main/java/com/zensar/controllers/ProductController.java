@@ -1,5 +1,7 @@
 package com.zensar.controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +34,13 @@ public class ProductController {
 	public Product getProduct(@PathVariable("productId") int productId) {
 		return service.getProduct(productId);
 	}
+	
+	
+	@GetMapping("/products/name/{productName}")
+	public List<Product> getProductByItsName(@PathVariable ("productName")String name) {
+		return service.getProductByItsName(name);
+	}
+
 
 	// http://localhost:8080/products -> POST
 	// @RequestMapping(value="/products",method=RequestMethod.POST)
