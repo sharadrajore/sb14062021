@@ -1,1 +1,1 @@
-insert into product_data values (10,100,"test");
+insert into product_data values (10,100,'test');
